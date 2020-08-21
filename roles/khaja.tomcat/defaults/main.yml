@@ -1,0 +1,14 @@
+---
+# defaults file for khaja.tomcat
+tomcat_package_name: tomcat
+tomcat_additional_packages:
+  - tomcat-webapps 
+  - tomcat-admin-webapps
+tomcat_conf_location: "/usr/share/tomcat/conf/tomcat.conf"
+xmx_size: 512m
+MaxPermSize: 256m
+username: admin
+password: password
+tomcat_roles: 
+  - manager-gui
+  - admin-gui

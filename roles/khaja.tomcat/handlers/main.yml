@@ -1,0 +1,7 @@
+---
+# handlers file for khaja.tomcat
+- name: enable and restart tomcat
+  service:
+    name: "{{ tomcat_package_name }}"
+    enabled: yes
+    state: restarted

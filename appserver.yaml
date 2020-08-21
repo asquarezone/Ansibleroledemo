@@ -1,0 +1,5 @@
+---
+- hosts: appserver
+  roles:
+    - name: khaja.tomcat
+      become: yes

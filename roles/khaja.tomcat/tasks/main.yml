@@ -1,0 +1,27 @@
+---
+# tasks file for khaja.tomcat
+- name: install tomcat
+  package:
+    name: "{{ tomcat_package_name }}"
+    state: present
+  notify:
+    - enable and restart tomcat
+- name: install additional packages
+  package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ tomcat_additional_packages }}"
+  notify:
+    - enable and restart tomcat
+- name: copy tomcat configuration
+  template:
+    src: tomcat.conf.j2
+    dest: /usr/share/tomcat/conf/tomcat.conf
+  notify:
+    - enable and restart tomcat
+- name: copy tomcat users xml
+  template:
+    src: tomcat-users.xml.j2
+    dest: /usr/share/tomcat/conf/tomcat-users.xml
+  notify:
+    - enable and restart tomcat
